@@ -1018,7 +1018,7 @@
   }
 
   .brand {
-    margin-left: -1.8rem;
+    margin-left: -2.3rem;
   }
 
   .menu-toggle {
@@ -1039,18 +1039,34 @@
     flex-direction: column;
     max-height: 0;
     opacity: 0;
-    transform: translateY(-10px) scale(0.98);
+    transform: translateY(-10px);
     transform-origin: top center;
     overflow: hidden;
     pointer-events: none;
+    will-change: transform, opacity, max-height;
+    backface-visibility: hidden;
     transition: max-height 0.32s ease, opacity 0.24s ease, transform 0.24s ease;
   }
 
   .main-nav.open {
     max-height: 72vh;
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateY(0);
     pointer-events: auto;
+  }
+
+  .main-nav .nav-link {
+    display: block;
+    width: 100%;
+    line-height: 1.35;
+    transform: none;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  .main-nav .nav-link:hover {
+    transform: none;
   }
 
   .two-col,
