@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="SPARC lightning A favicon">
+  <defs>
+    <linearGradient id="sparcBolt" x1="10" y1="8" x2="54" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#39d98a" />
+      <stop offset="0.55" stop-color="#1ea977" />
+      <stop offset="1" stop-color="#1f5ea8" />
+    </linearGradient>
+  </defs>
+
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="#031714" stroke="#1f8a64" stroke-width="2" />
+
+  <path
+    d="M19 49L30 15h7l-6.4 19.5H39L27 49h-8zm13.2-6.8h3.6L39 33h-5.8l2.9-9.7-6.8 18.9h3.6z"
+    fill="url(#sparcBolt)"
+  />
+
+  <path d="M17 52h30" stroke="#2dcf92" stroke-opacity="0.35" stroke-linecap="round" />
+</svg>
