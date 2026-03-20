@@ -777,6 +777,7 @@
 
   .panel,
   .nav-link,
+  .main-nav,
   .contact-form button,
   .social-icon,
   .venue-carousel-track,
@@ -1013,11 +1014,11 @@
 
   .brand-logo {
     width: clamp(170px, 48vw, 230px);
-    max-height: 68px;
+    max-height: 85px;
   }
 
   .brand {
-    margin-left: -0.45rem;
+    margin-left: -1.8rem;
   }
 
   .menu-toggle {
@@ -1034,12 +1035,22 @@
     border-radius: 12px;
     background: rgba(0, 25, 22, 0.95);
     padding: 0.7rem;
-    display: none;
+    display: flex;
     flex-direction: column;
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-10px) scale(0.98);
+    transform-origin: top center;
+    overflow: hidden;
+    pointer-events: none;
+    transition: max-height 0.32s ease, opacity 0.24s ease, transform 0.24s ease;
   }
 
   .main-nav.open {
-    display: flex;
+    max-height: 72vh;
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
   }
 
   .two-col,
