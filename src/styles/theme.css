@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Sora:wght@600;700&display=swap");
+
 :root {
   --bg-1: #03211d;
   --bg-2: #063630;
@@ -11,6 +13,8 @@
   --max-width: 1120px;
   --shadow: 0 12px 40px rgba(5, 9, 8, 0.45);
   --radius: 14px;
+  --font-body: "Space Grotesk", "Segoe UI", "Trebuchet MS", sans-serif;
+  --font-display: "Sora", "Space Grotesk", "Segoe UI", sans-serif;
 }
 
 * {
@@ -25,7 +29,7 @@ body,
 
 body {
   margin: 0;
-  font-family: "Segoe UI", "Trebuchet MS", sans-serif;
+  font-family: var(--font-body);
   color: var(--text);
   background: radial-gradient(circle at 20% 10%, #0b5a50 0%, transparent 40%),
     linear-gradient(150deg, var(--bg-1), var(--bg-2) 50%, var(--bg-3));

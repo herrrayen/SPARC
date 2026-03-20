@@ -107,6 +107,36 @@
   gap: 2rem;
 }
 
+.page-shell section > h1 {
+  position: relative;
+  width: fit-content;
+  margin: 0 0 0.35rem;
+  padding-bottom: 0.45rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 4vw, 2.7rem);
+  line-height: 1.08;
+  letter-spacing: 0.03em;
+  background: linear-gradient(90deg, rgba(166, 255, 230, 0.98), rgba(107, 240, 198, 0.98), rgba(183, 255, 236, 0.98));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: title-shimmer 5.4s ease-in-out infinite;
+}
+
+.page-shell section > h1::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  border-radius: 99px;
+  background: linear-gradient(90deg, rgba(94, 239, 198, 0.2), rgba(143, 255, 226, 0.95), rgba(94, 239, 198, 0.2));
+  transform-origin: left;
+  animation: title-line 1.1s ease-out 1;
+}
+
 .hero {
   margin-bottom: 1.2rem;
 }
@@ -724,6 +754,32 @@
   }
 }
 
+@keyframes title-shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes title-line {
+  from {
+    transform: scaleX(0.2);
+    opacity: 0.35;
+  }
+
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
 @keyframes panel-float {
   0% {
     transform: translateY(0);
@@ -787,6 +843,8 @@
     animation: none;
   }
 
+  .page-shell section > h1,
+  .page-shell section > h1::after,
   .hero-countdown-focus::before,
   .hero-countdown-focus::after {
     animation: none;
