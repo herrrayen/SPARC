@@ -89,49 +89,218 @@ export const socialLinks = {
 };
 
 export const organizingCommittee = [
-  { name: "[TBD] Event Chair", role: "Event Chair" },
-  { name: "[TBD] Event Vice Chair", role: "Event Vice Chair" },
-  { name: "[TBD] Event Secretary", role: "Event Secretary" },
-  { name: "[TBD] Event Treasurer", role: "Event Treasurer" },
-  { name: "[TBD] Media Manager", role: "Media Manager" },
-  { name: "[TBD] Ambassadors Coordinator", role: "Ambassadors Coordinator" },
   {
-    name: "[TBD] Technical Program Manager",
-    role: "Technical Program Manager",
+    name: "Mohamed Rayen Trabelsi",
+    role: "Event Chair",
+    email: "",
+    linkedin: "",
   },
-  { name: "[TBD] Logistics Manager", role: "Logistics Manager" },
-  { name: "[TBD] Transportations Manager", role: "Transportations Manager" },
   {
-    name: "[TBD] Industrial Visits Manager",
-    role: "Industrial Visits Manager",
+    name: "Hamza Mellouli",
+    role: "Event Vice Chair",
+    email: "",
+    linkedin: "",
   },
-  { name: "[TBD] Participants Manager", role: "Participants Manager" },
-  { name: "[TBD] Decoration Manager 1", role: "Decoration Manager" },
-  { name: "[TBD] Decoration Manager 2", role: "Decoration Manager" },
-  { name: "[TBD] Sponsoring Manager", role: "Sponsoring Manager" },
+  {
+    name: "Kmar Ayari",
+    role: "Event Secretary",
+    email: "",
+    linkedin: "",
+  },
+  {
+    name: "Mira Ouertatani",
+    role: "Event Treasurer",
+    email: "miragc2006@gmail.com",
+    linkedin: "",
+  },
+  {
+    name: "Baha Eddine Gassar",
+    role: "Media Manager",
+    email: "",
+    linkedin: "",
+  },
+  {
+    name: "Sarah Soltani",
+    role: "Ambassadors Coordinator",
+    email: "",
+    linkedin: "",
+  },
+  {
+    name: "Mouhib Farhat",
+    role: "Technical Program Lead",
+    email: "",
+    linkedin: "",
+  },
+  {
+    name: "Andel Belgacemi",
+    role: "Logistics Lead",
+    email: "andelguesmi@gmail.com",
+    linkedin: "https://tn.linkedin.com/in/andel-belgacemi-40455b2a5",
+  },
+  {
+    name: "Aziz Chaouch",
+    role: "Transportation Manager",
+    email: "",
+    linkedin: "",
+  },
+  {
+    name: "Khalil Derouiche",
+    role: "Transportation Manager",
+    email: "",
+    linkedin: "",
+  },
+  {
+    name: "Fatma Feki",
+    role: "Industrial Visits Coordinator",
+    email: "",
+    linkedin: "",
+  },
+  {
+    name: "Yosra Boughattas",
+    role: "Sponsoring Manager",
+    email: "",
+    linkedin: "",
+  },
+  {
+    name: "Salma Teyeb",
+    role: "Participants Manager",
+    email: "salma.teyeb.01@gmail.com",
+    linkedin: "",
+  },
+  {
+    name: "Yasmine Harzi",
+    role: "Decoration Lead",
+    email: "",
+    linkedin: "",
+  },
+  {
+    name: "Sinda Chekir",
+    role: "Decoration Manager",
+    email: "",
+    linkedin: "",
+  },
+  {
+    name: "Omar Hamrouni",
+    role: "Media Manager",
+    email: "",
+    linkedin: "",
+  },
+  {
+    name: "Yahya Ben Mohamed",
+    role: "Media Manager",
+    email: "",
+    linkedin: "",
+  },
+  {
+    name: "Mohamed Sehly",
+    role: "Sponsoring Manager",
+    email: "",
+    linkedin: "",
+  },
 ];
 
 export const ieeePartners = [
-  "IEEE ISTIC Student Branch",
-  "IEEE IAS PES ISTIC SB Joint Chapter",
-  "IEEE PES",
-  "IEEE IAS",
+  {
+    name: "IEEE ISTIC Student Branch",
+    logo: "/assets/collaborators/istic-sb.png",
+    instagram: "https://www.instagram.com/ieee.istic.sb/",
+    linkedin: "https://www.linkedin.com/company/ieee-istic-sb",
+  },
+  {
+    name: "IEEE IAS PES ISTIC SB Joint Chapter",
+    logo: "/assets/collaborators/ias-pes.png",
+    instagram: "https://www.instagram.com/ieee_istic_ias_pes_sbjc/",
+    linkedin: "https://www.linkedin.com/company/ieee-istic-ias-pes-student-branch-joint-chapter/",
+  },
+  {
+    name: "IEEE PES",
+    logo: "",
+    instagram: "",
+    linkedin: "",
+  },
+  {
+    name: "IEEE IAS",
+    logo: "",
+    instagram: "",
+    linkedin: "",
+  },
 ];
 
 export const collaborators = [
-  "[TBD] Academic Collaborator 1",
-  "[TBD] Innovation Collaborator 2",
-  "[TBD] Media Collaborator 3",
-  "[TBD] Community Collaborator 4",
+  {
+    name: "Nova Scale",
+    role: "Video Production Agency",
+    logo: "/assets/collaborators/nova-scale.png",
+    instagram: "https://www.instagram.com/novascale.media/",
+    linkedin: "",
+  },
+  {
+    name: "[TBD] Academic Collaborator 1",
+    role: "Academic Collaborator",
+    logo: "",
+    instagram: "",
+    linkedin: "",
+  },
+  {
+    name: "[TBD] Innovation Collaborator 2",
+    role: "Innovation Collaborator",
+    logo: "",
+    instagram: "",
+    linkedin: "",
+  },
+  {
+    name: "[TBD] Media Collaborator 3",
+    role: "Media Collaborator",
+    logo: "",
+    instagram: "",
+    linkedin: "",
+  },
+  {
+    name: "[TBD] Community Collaborator 4",
+    role: "Community Collaborator",
+    logo: "",
+    instagram: "",
+    linkedin: "",
+  },
 ];
 
 export const sponsorPlaceholders = [
-  "[TBD] Strategic Supporter 1",
-  "[TBD] Strategic Supporter 2",
-  "[TBD] Innovation Backer 3",
-  "[TBD] Innovation Backer 4",
-  "[TBD] Community Ally 5",
-  "[TBD] Community Ally 6",
+  {
+    name: "[TBD] Strategic Supporter 1",
+    logo: "",
+    instagram: "",
+    linkedin: "",
+  },
+  {
+    name: "[TBD] Strategic Supporter 2",
+    logo: "",
+    instagram: "",
+    linkedin: "",
+  },
+  {
+    name: "[TBD] Innovation Backer 3",
+    logo: "",
+    instagram: "",
+    linkedin: "",
+  },
+  {
+    name: "[TBD] Innovation Backer 4",
+    logo: "",
+    instagram: "",
+    linkedin: "",
+  },
+  {
+    name: "[TBD] Community Ally 5",
+    logo: "",
+    instagram: "",
+    linkedin: "",
+  },
+  {
+    name: "[TBD] Community Ally 6",
+    logo: "",
+    instagram: "",
+    linkedin: "",
+  },
 ];
 
 export const ambassadorPlaceholders = [

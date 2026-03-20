@@ -3,13 +3,32 @@ import {
   innovationTracks,
   ieeePartners,
   organizingCommittee,
+  socialLinks,
   sitePlaceholders,
   sponsorPlaceholders,
 } from "../data/placeholders";
+import { useState } from "react";
 import Countdown from "react-countdown";
 import { Link } from "react-router-dom";
 
 const EVENT_DATE = new Date("2026-04-11T00:00:00");
+
+const rolePriority = {
+  "Event Chair": 1,
+  "Event Vice Chair": 2,
+  "Event Secretary": 3,
+  "Event Treasurer": 4,
+  "Technical Program Lead": 5,
+  "Logistics Lead": 6,
+  "Industrial Visits Coordinator": 7,
+  "Transportation Manager": 8,
+  "Media Manager": 9,
+  "Ambassadors Coordinator": 10,
+  "Sponsoring Manager": 11,
+  "Decoration Lead": 12,
+  "Decoration Manager": 13,
+  "Participants Manager": 14,
+};
 
 function countdownRenderer({ completed, days, hours, minutes, seconds }) {
   if (completed) {
@@ -31,7 +50,150 @@ function countdownRenderer({ completed, days, hours, minutes, seconds }) {
   );
 }
 
+function slugifyMemberName(name) {
+  return name
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function getMemberPhotoPath(member) {
+  if (member.photo) {
+    return member.photo;
+  }
+  return `/assets/oc/${slugifyMemberName(member.name)}.jpg`;
+}
+
+function TeamPhoto({ member }) {
+  const [hasImageError, setHasImageError] = useState(false);
+  const shouldAttemptImage = !member.name.startsWith("[TBD]");
+
+  return (
+    <>
+      {shouldAttemptImage && !hasImageError ? (
+        <img
+          src={getMemberPhotoPath(member)}
+          alt={member.name}
+          className="team-photo-img"
+          onError={() => setHasImageError(true)}
+        />
+      ) : null}
+      {(!shouldAttemptImage || hasImageError) && (
+        <span className="team-photo-label">Coming Soon</span>
+      )}
+    </>
+  );
+}
+
+function CollaboratorLogo({ collaborator }) {
+  const [hasImageError, setHasImageError] = useState(false);
+  const hasLogo = Boolean(collaborator.logo);
+
+  if (hasLogo && !hasImageError) {
+    return (
+      <img
+        src={collaborator.logo}
+        alt={`${collaborator.name} logo`}
+        className="logo-slot-img"
+        onError={() => setHasImageError(true)}
+      />
+    );
+  }
+
+  return <span>Logo Slot</span>;
+}
+
+function SupportLogo({ item, fallbackLabel }) {
+  const [hasImageError, setHasImageError] = useState(false);
+  const hasLogo = Boolean(item.logo);
+
+  if (hasLogo && !hasImageError) {
+    return (
+      <img
+        src={item.logo}
+        alt={`${item.name} logo`}
+        className="logo-slot-img"
+        onError={() => setHasImageError(true)}
+      />
+    );
+  }
+
+  return <span>{fallbackLabel}</span>;
+}
+
+function SocialIconLinks({ instagram, linkedin, label }) {
+  const instagramUrl = instagram || socialLinks.instagram;
+  const linkedinUrl = linkedin || socialLinks.linkedin;
+
+  return (
+    <div className="logo-social-row" aria-label={`${label} social links`}>
+      <a
+        className="logo-social-link"
+        href={instagramUrl}
+        target="_blank"
+        rel="noreferrer"
+        aria-label={`${label} Instagram`}
+      >
+        <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+          <path
+            d="M7.5 3h9A4.5 4.5 0 0 1 21 7.5v9a4.5 4.5 0 0 1-4.5 4.5h-9A4.5 4.5 0 0 1 3 16.5v-9A4.5 4.5 0 0 1 7.5 3Zm0 2A2.5 2.5 0 0 0 5 7.5v9A2.5 2.5 0 0 0 7.5 19h9a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 16.5 5h-9Zm10.25 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8Zm0 2a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z"
+            fill="currentColor"
+          />
+        </svg>
+      </a>
+
+      <a
+        className="logo-social-link"
+        href={linkedinUrl}
+        target="_blank"
+        rel="noreferrer"
+        aria-label={`${label} LinkedIn`}
+      >
+        <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+          <path
+            d="M6.94 8.5a1.56 1.56 0 1 1 0-3.12 1.56 1.56 0 0 1 0 3.12ZM5.6 18.5h2.68V9.9H5.6v8.6Zm4.3-8.6v8.6h2.67v-4.27c0-1.12.21-2.2 1.6-2.2 1.37 0 1.39 1.29 1.39 2.28v4.19h2.68v-4.73c0-2.32-.5-4.1-3.2-4.1-1.3 0-2.18.72-2.54 1.4h-.03V9.9H9.9Z"
+            fill="currentColor"
+          />
+        </svg>
+      </a>
+    </div>
+  );
+}
+
 function Home() {
+  const [copiedMemberKey, setCopiedMemberKey] = useState(null);
+
+  const sortedCommittee = organizingCommittee
+    .map((member, sourceIndex) => ({
+      ...member,
+      sourceIndex,
+      priority: rolePriority[member.role] ?? 999,
+    }))
+    .sort((a, b) => {
+      if (a.priority !== b.priority) {
+        return a.priority - b.priority;
+      }
+      return a.name.localeCompare(b.name);
+    });
+
+  const copyEmail = async (email, memberKey) => {
+    if (!email) {
+      return;
+    }
+
+    try {
+      await navigator.clipboard.writeText(email);
+      setCopiedMemberKey(memberKey);
+      window.setTimeout(() => {
+        setCopiedMemberKey((activeMemberKey) =>
+          activeMemberKey === memberKey ? null : activeMemberKey
+        );
+      }, 1800);
+    } catch {
+      setCopiedMemberKey(null);
+    }
+  };
+
   return (
     <section className="home-page">
         <div className="hero-home-visual hero-countdown-focus">
@@ -90,11 +252,16 @@ function Home() {
             <h3>IEEE Partners</h3>
             <div className="card-grid logo-slot-grid">
               {ieeePartners.map((partner) => (
-                <div key={partner} className="logo-slot-card">
-                  <div className="logo-slot" aria-hidden="true">
-                    Logo Slot
+                <div key={partner.name} className="logo-slot-card">
+                  <div className="logo-slot">
+                    <SupportLogo item={partner} fallbackLabel="Logo Slot" />
+                    <SocialIconLinks
+                      instagram={partner.instagram}
+                      linkedin={partner.linkedin}
+                      label={partner.name}
+                    />
                   </div>
-                  <p>{partner}</p>
+                  <p>{partner.name}</p>
                 </div>
               ))}
             </div>
@@ -104,11 +271,16 @@ function Home() {
             <h3>Collaborative Allies</h3>
             <div className="card-grid logo-slot-grid">
               {collaborators.map((collaborator) => (
-                <div key={collaborator} className="logo-slot-card">
-                  <div className="logo-slot" aria-hidden="true">
-                    Logo Slot
+                <div key={collaborator.name} className="logo-slot-card">
+                  <div className="logo-slot">
+                    <CollaboratorLogo collaborator={collaborator} />
+                    <SocialIconLinks
+                      instagram={collaborator.instagram}
+                      linkedin={collaborator.linkedin}
+                      label={collaborator.name}
+                    />
                   </div>
-                  <p>{collaborator}</p>
+                  <p>{collaborator.name}</p>
                 </div>
               ))}
             </div>
@@ -118,11 +290,16 @@ function Home() {
             <h3>Strategic Backers</h3>
             <div className="card-grid logo-slot-grid">
               {sponsorPlaceholders.map((sponsor) => (
-                <div key={sponsor} className="logo-slot-card">
-                  <div className="logo-slot" aria-hidden="true">
-                    Partner Logo
+                <div key={sponsor.name} className="logo-slot-card">
+                  <div className="logo-slot">
+                    <SupportLogo item={sponsor} fallbackLabel="Partner Logo" />
+                    <SocialIconLinks
+                      instagram={sponsor.instagram}
+                      linkedin={sponsor.linkedin}
+                      label={sponsor.name}
+                    />
                   </div>
-                  <p>{sponsor}</p>
+                  <p>{sponsor.name}</p>
                 </div>
               ))}
             </div>
@@ -195,18 +372,58 @@ function Home() {
       <article className="panel team-panel">
         <h2>Our Team - Organizing Committee</h2>
         <p className="subtle">
-          Committee members and portraits will be revealed progressively as the organization timeline advances.
+          Committee members are sorted by role importance.
         </p>
         <div className="card-grid">
-          {organizingCommittee.map((member, idx) => (
-            <div key={`${member.role}-${idx}`} className="team-card">
-              <div className="team-photo-slot" aria-hidden="true">
-                Coming Soon
+          {sortedCommittee.map((member) => {
+            const memberKey = `${member.role}-${member.sourceIndex}`;
+
+            return (
+              <div key={memberKey} className="team-card">
+                <div className="team-photo-slot">
+                  <TeamPhoto member={member} />
+                  <div className="team-contact-overlay">
+                    <a
+                      className="team-contact-link"
+                      href={member.linkedin || socialLinks.linkedin}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={`Open ${member.name} LinkedIn profile`}
+                    >
+                      <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+                        <path
+                          d="M6.94 8.5a1.56 1.56 0 1 1 0-3.12 1.56 1.56 0 0 1 0 3.12ZM5.6 18.5h2.68V9.9H5.6v8.6Zm4.3-8.6v8.6h2.67v-4.27c0-1.12.21-2.2 1.6-2.2 1.37 0 1.39 1.29 1.39 2.28v4.19h2.68v-4.73c0-2.32-.5-4.1-3.2-4.1-1.3 0-2.18.72-2.54 1.4h-.03V9.9H9.9Z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </a>
+                    <button
+                      type="button"
+                      className="team-contact-copy"
+                      aria-label={`Copy ${member.name} email`}
+                      onClick={() =>
+                        copyEmail(member.email || sitePlaceholders.contactEmail, memberKey)
+                      }
+                    >
+                      <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+                        <path
+                          d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v11a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 17.5v-11Zm2.5-.5a.5.5 0 0 0-.5.5v.33l6 4.11 6-4.11V6.5a.5.5 0 0 0-.5-.5h-11Zm11.5 3.26-4.9 3.35a2 2 0 0 1-2.2 0L6 9.26v8.24c0 .28.22.5.5.5h11a.5.5 0 0 0 .5-.5V9.26Z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                  {copiedMemberKey === memberKey && (
+                    <p className="team-contact-toast" role="status" aria-live="polite">
+                      Email copied
+                    </p>
+                  )}
+                </div>
+                <h3>{member.name}</h3>
+                <p>{member.role}</p>
               </div>
-              <h3>{member.name}</h3>
-              <p>{member.role}</p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </article>
     </section>
