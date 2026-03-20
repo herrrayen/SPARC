@@ -32,12 +32,16 @@
 }
 
 .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1200;
   border-bottom: 1px solid rgba(58, 185, 147, 0.25);
   backdrop-filter: blur(10px);
   background: rgba(0, 26, 22, 0.55);
 }
 
 .header-inner {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -69,6 +73,7 @@
 }
 
 .main-nav {
+  z-index: 1210;
   display: flex;
   gap: 0.55rem;
   flex-wrap: wrap;
@@ -969,6 +974,15 @@
 }
 
 @media (max-width: 960px) {
+  .page-shell section {
+    justify-items: center;
+  }
+
+  .page-shell section > * {
+    width: min(100%, 820px);
+    margin-inline: auto;
+  }
+
   .hero-home-visual {
     min-height: 280px;
     margin-bottom: clamp(3.6rem, 9vh, 5.4rem);
@@ -994,11 +1008,16 @@
 @media (max-width: 760px) {
   .header-inner {
     min-height: 84px;
+    padding-left: 0.15rem;
   }
 
   .brand-logo {
-    width: clamp(130px, 36vw, 170px);
-    max-height: 54px;
+    width: clamp(170px, 48vw, 230px);
+    max-height: 68px;
+  }
+
+  .brand {
+    margin-left: -0.45rem;
   }
 
   .menu-toggle {
@@ -1007,9 +1026,10 @@
 
   .main-nav {
     position: absolute;
-    top: 76px;
+    top: calc(100% - 0.2rem);
     left: 1rem;
     right: 1rem;
+    z-index: 1210;
     border: 1px solid rgba(58, 185, 147, 0.25);
     border-radius: 12px;
     background: rgba(0, 25, 22, 0.95);
@@ -1033,6 +1053,10 @@
     min-height: 250px;
     padding: 0.8rem;
     margin-bottom: clamp(2.8rem, 7vh, 4.2rem);
+  }
+
+  .page-shell section > * {
+    width: min(100%, 680px);
   }
 
   .countdown-display {
