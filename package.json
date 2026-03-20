@@ -3,16 +3,16 @@
   "version": "1.0.0",
   "description": "SPARC Congress website",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "dev": "node ./node_modules/vite/bin/vite.js",
+    "build": "node ./node_modules/vite/bin/vite.js build",
+    "preview": "node ./node_modules/vite/bin/vite.js preview"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "module",
   "engines": {
-    "node": ">=22.12.0",
+    "node": "22.x",
     "npm": ">=10.0.0"
   },
   "dependencies": {
