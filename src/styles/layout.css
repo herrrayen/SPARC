@@ -725,6 +725,25 @@
   background: rgba(15, 103, 86, 0.92);
 }
 
+.contact-form button:disabled {
+  opacity: 0.72;
+  cursor: not-allowed;
+}
+
+.form-status-success,
+.form-status-error {
+  margin: 0.2rem 0 0;
+  font-size: 0.88rem;
+}
+
+.form-status-success {
+  color: rgba(156, 253, 220, 0.95);
+}
+
+.form-status-error {
+  color: rgba(255, 168, 168, 0.95);
+}
+
 .page-shell section > *:not(.panel) {
   opacity: 0;
   animation: soft-rise 0.45s ease-out forwards;
