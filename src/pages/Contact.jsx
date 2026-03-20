@@ -8,6 +8,7 @@ function Contact() {
 
   async function handleSubmit(e) {
     e.preventDefault();
+    const form = e.currentTarget;
 
     if (!accessKey) {
       setSubmitStatus({
@@ -20,7 +21,7 @@ function Contact() {
     setIsSubmitting(true);
     setSubmitStatus({ type: "", message: "" });
 
-    const formData = new FormData(e.currentTarget);
+    const formData = new FormData(form);
     const payload = {
       access_key: accessKey,
       name: formData.get("name"),
@@ -40,10 +41,18 @@ function Contact() {
         body: JSON.stringify(payload),
       });
 
-      const result = await response.json();
+      const contentType = response.headers.get("content-type") || "";
+      let result = null;
 
-      if (response.ok && result.success) {
-        e.currentTarget.reset();
+      if (contentType.includes("application/json")) {
+        result = await response.json();
+      } else {
+        const text = await response.text();
+        result = { message: text };
+      }
+
+      if (response.ok && result?.success !== false) {
+        form.reset();
         setSubmitStatus({
           type: "success",
           message: "Your message was sent successfully.",
@@ -51,13 +60,13 @@ function Contact() {
       } else {
         setSubmitStatus({
           type: "error",
-          message: result.message || "Unable to send your message right now.",
+          message: result?.message || "Unable to send your message right now.",
         });
       }
-    } catch {
+    } catch (error) {
       setSubmitStatus({
         type: "error",
-        message: "Network error. Please try again in a moment.",
+        message: error?.message ? `Network error: ${error.message}` : "Network error. Please try again in a moment.",
       });
     } finally {
       setIsSubmitting(false);
@@ -75,6 +84,8 @@ function Contact() {
         <article className="panel">
           <h2>Contact Form</h2>
           <form className="contact-form" onSubmit={handleSubmit}>
+            <input type="checkbox" name="botcheck" tabIndex={-1} autoComplete="off" style={{ display: "none" }} />
+
             <label htmlFor="name">Full Name</label>
             <input id="name" name="name" type="text" placeholder="Enter your name" required />
 
