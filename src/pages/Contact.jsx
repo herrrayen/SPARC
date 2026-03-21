@@ -112,9 +112,8 @@ function Contact() {
 
         <article className="panel">
           <h2>Official Contact</h2>
-          <p>Email: {sitePlaceholders.contactEmail}</p>
-          <p>[TBD] Phone number</p>
-          <p>[TBD] Office address</p>
+          {sitePlaceholders.contactEmail ? <p>Email: {sitePlaceholders.contactEmail}</p> : null}
+          <p className="subtle">For inquiries, please use the contact form.</p>
         </article>
       </div>
     </section>

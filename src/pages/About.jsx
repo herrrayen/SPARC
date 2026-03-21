@@ -32,9 +32,7 @@ function About() {
               >
                 {widget.websiteLabel}
               </a>
-            ) : (
-              <span className="info-link disabled">Website link pending confirmation</span>
-            )}
+            ) : null}
           </article>
         ))}
       </div>

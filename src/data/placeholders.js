@@ -4,7 +4,7 @@ export const sitePlaceholders = {
   congressDate: "April 11-12, 2026",
   congressLocation: "Tunisia",
   registrationStatus: "Specifications book released ahead of the build cycle",
-  contactEmail: "[TBD] official@domain",
+  contactEmail: "",
   host: "IEEE ISTIC Student Branch and Chapters",
   eventName: "IEEE ISTIC Congress and Innovation Challenge 2026",
   eventTheme:
@@ -57,7 +57,7 @@ export const aboutWidgets = [
     description:
       "SPARC is the event identity for a student-driven technology mission focused on energy resilience, sustainable innovation, and real-world deployment impact.",
     websiteLabel: "Visit SPARC Page",
-    websiteUrl: "[TBD]",
+    websiteUrl: "",
   },
   {
     title: "About POWER AND ENERGY SOCIETY",
@@ -92,50 +92,64 @@ export const organizingCommittee = [
   {
     name: "Mohamed Rayen Trabelsi",
     role: "Event Chair",
-    email: "",
-    linkedin: "",
+    email: "trabelsimedrayen@ieee.org",
+    linkedin: "https://www.linkedin.com/in/trabelsi-med-rayen/",
+    photo: "/assets/oc/rayen.jpg",
   },
   {
     name: "Hamza Mellouli",
     role: "Event Vice Chair",
     email: "",
     linkedin: "",
+    photo: "/assets/oc/hamza.jfif",
   },
   {
     name: "Kmar Ayari",
     role: "Event Secretary",
     email: "",
     linkedin: "",
+    photo: "/assets/oc/kmar.webp",
   },
   {
     name: "Mira Ouertatani",
     role: "Event Treasurer",
     email: "miragc2006@gmail.com",
     linkedin: "",
+    photo: "/assets/oc/mira.jpg",
   },
   {
     name: "Baha Eddine Gassar",
-    role: "Media Manager",
+    role: "Social Media Lead",
+    email: "bahagassar@ieee.org",
+    linkedin: "https://www.linkedin.com/in/bahaeddinegassar",
+    photo: "/assets/oc/baha.jpg",
+  },
+  {
+    name: "Ranim Ben Mansour",
+    role: "Social Media Manager",
     email: "",
     linkedin: "",
   },
   {
     name: "Sarah Soltani",
     role: "Ambassadors Coordinator",
-    email: "",
-    linkedin: "",
+    email: "soltanisarah98@gmail.com",
+    linkedin: "https://www.linkedin.com/in/sarah-soltani-782450387?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
+    photo: "/assets/oc/sarah.jpeg",
   },
   {
     name: "Mouhib Farhat",
     role: "Technical Program Lead",
     email: "",
     linkedin: "",
+    photo: "/assets/oc/mouhib.jpg",
   },
   {
     name: "Andel Belgacemi",
     role: "Logistics Lead",
     email: "andelguesmi@gmail.com",
     linkedin: "https://tn.linkedin.com/in/andel-belgacemi-40455b2a5",
+    photo: "/assets/oc/andel-belgacemi.jpg",
   },
   {
     name: "Aziz Chaouch",
@@ -156,6 +170,25 @@ export const organizingCommittee = [
     linkedin: "",
   },
   {
+    name: "Med Malek Krima",
+    role: "Industrial Visits Coordinator",
+    email: "krimamalek@gmail.com",
+    linkedin: "",
+    photo: "/assets/oc/malek.jpg",
+  },
+  {
+    name: "Med Mounir Gharbi",
+    role: "Technical Program Manager",
+    email: "",
+    linkedin: "",
+  },
+  {
+    name: "Naghal Ben Hassan",
+    role: "Technical Program Manager",
+    email: "",
+    linkedin: "",
+  },
+  {
     name: "Yosra Boughattas",
     role: "Sponsoring Manager",
     email: "",
@@ -165,6 +198,13 @@ export const organizingCommittee = [
     name: "Salma Teyeb",
     role: "Participants Manager",
     email: "salma.teyeb.01@gmail.com",
+    linkedin: "",
+    photo: "/assets/oc/salma-teyeb.jpg",
+  },
+  {
+    name: "Mariem Aouadi",
+    role: "HR Manager",
+    email: "",
     linkedin: "",
   },
   {
@@ -182,14 +222,16 @@ export const organizingCommittee = [
   {
     name: "Omar Hamrouni",
     role: "Media Manager",
-    email: "",
-    linkedin: "",
+    email: "hamrouniomar95@gmail.com",
+    linkedin: "https://www.linkedin.com/in/omar-hamrouni-858b733a5?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
+    photo: "/assets/oc/omar.jpeg",
   },
   {
     name: "Yahya Ben Mohamed",
     role: "Media Manager",
-    email: "",
-    linkedin: "",
+    email: "yahyagrandfr@gmail.com",
+    linkedin: "https://www.linkedin.com/in/yahya-ben-mohamed-2138aa392?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    photo: "/assets/oc/yahya.jpg",
   },
   {
     name: "Mohamed Sehly",
@@ -214,9 +256,9 @@ export const ieeePartners = [
   },
   {
     name: "IEEE PES",
-    logo: "",
-    instagram: "",
-    linkedin: "",
+    logo: "/assets/collaborators/pes_logo.png",
+    instagram: "https://www.instagram.com/ieee.pes/",
+    linkedin: "https://www.linkedin.com/company/ieeepes",
   },
   {
     name: "IEEE IAS",
@@ -234,111 +276,26 @@ export const collaborators = [
     instagram: "https://www.instagram.com/novascale.media/",
     linkedin: "",
   },
-  {
-    name: "[TBD] Academic Collaborator 1",
-    role: "Academic Collaborator",
-    logo: "",
-    instagram: "",
-    linkedin: "",
-  },
-  {
-    name: "[TBD] Innovation Collaborator 2",
-    role: "Innovation Collaborator",
-    logo: "",
-    instagram: "",
-    linkedin: "",
-  },
-  {
-    name: "[TBD] Media Collaborator 3",
-    role: "Media Collaborator",
-    logo: "",
-    instagram: "",
-    linkedin: "",
-  },
-  {
-    name: "[TBD] Community Collaborator 4",
-    role: "Community Collaborator",
-    logo: "",
-    instagram: "",
-    linkedin: "",
-  },
 ];
 
-export const sponsorPlaceholders = [
-  {
-    name: "[TBD] Strategic Supporter 1",
-    logo: "",
-    instagram: "",
-    linkedin: "",
-  },
-  {
-    name: "[TBD] Strategic Supporter 2",
-    logo: "",
-    instagram: "",
-    linkedin: "",
-  },
-  {
-    name: "[TBD] Innovation Backer 3",
-    logo: "",
-    instagram: "",
-    linkedin: "",
-  },
-  {
-    name: "[TBD] Innovation Backer 4",
-    logo: "",
-    instagram: "",
-    linkedin: "",
-  },
-  {
-    name: "[TBD] Community Ally 5",
-    logo: "",
-    instagram: "",
-    linkedin: "",
-  },
-  {
-    name: "[TBD] Community Ally 6",
-    logo: "",
-    instagram: "",
-    linkedin: "",
-  },
-];
+export const sponsorPlaceholders = [];
 
-export const ambassadorPlaceholders = [
-  {
-    order: 1,
-    name: "[TBD] Ambassador 1",
-    studentBranch: "[TBD] IEEE SB",
-  },
-  {
-    order: 2,
-    name: "[TBD] Ambassador 2",
-    studentBranch: "[TBD] IEEE SB",
-  },
-  {
-    order: 3,
-    name: "[TBD] Ambassador 3",
-    studentBranch: "[TBD] IEEE SB",
-  },
-  {
-    order: 4,
-    name: "[TBD] Ambassador 4",
-    studentBranch: "[TBD] IEEE SB",
-  },
-  {
-    order: 5,
-    name: "[TBD] Ambassador 5",
-    studentBranch: "[TBD] IEEE SB",
-  },
-  {
-    order: 6,
-    name: "[TBD] Ambassador 6",
-    studentBranch: "[TBD] IEEE SB",
-  },
-];
+export const ambassadorPlaceholders = [];
 
 export const venueGalleryImages = [
   "/assets/brand/ccsj-ben-arous-1.jpg",
   "/assets/brand/ccsj-ben-arous-2.jpg",
   "/assets/brand/ccsj-ben-arous-3.jpg",
   "/assets/brand/ccsj-ben-arous-4.jpg",
+];
+
+export const speakerProfiles = [
+  {
+    name: "Lina Bertling Tjernberg",
+    role: "Keynote Speaker",
+    organization: "KTH Royal Institute of Technology",
+    email: "linab@kth.se",
+    linkedin: "https://www.linkedin.com/in/linabertling/",
+    photo: "/assets/speakers/Lina-Bertling-Tjernberg.jpg",
+  },
 ];

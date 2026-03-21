@@ -589,7 +589,7 @@
 
 .speaker-photo-slot {
   width: 100%;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 3 / 4;
   border-radius: 10px;
   border: 1px dashed rgba(92, 233, 191, 0.55);
   background: linear-gradient(145deg, rgba(11, 73, 62, 0.55), rgba(5, 39, 33, 0.78));
@@ -599,6 +599,34 @@
   font-size: 0.84rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+  overflow: hidden;
+}
+
+.speaker-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  background: #f6f6f6;
+}
+
+.speaker-links {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.speaker-links a {
+  border: 1px solid rgba(86, 229, 186, 0.58);
+  border-radius: 999px;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.82rem;
+  color: rgba(205, 255, 242, 0.96);
+  background: rgba(8, 73, 61, 0.52);
+}
+
+.speaker-links a:hover {
+  border-color: rgba(147, 255, 228, 0.9);
 }
 
 .speaker-slot-id {

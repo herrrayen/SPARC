@@ -27,7 +27,7 @@ function Program() {
       <h1>Program</h1>
       <p className="subtle">
         The final agenda is being locked with speakers, mentors, and jury
-        coordination. Until release, each day queue is shown as staged blocks.
+        coordination.
       </p>
       <div className="program-queue-grid">
         {dayQueues.map((day) => (
@@ -39,10 +39,7 @@ function Program() {
             <ol className="program-queue-list">
               {day.items.map((item) => (
                 <li key={item}>
-                  <div>
-                    <p>{item}</p>
-                    <p className="subtle">Coming soon</p>
-                  </div>
+                  <p>{item}</p>
                 </li>
               ))}
             </ol>
@@ -53,8 +50,7 @@ function Program() {
       <article className="panel">
         <h2>Release Window</h2>
         <p className="subtle">
-          Full hour-by-hour scheduling will replace these placeholders once all
-          confirmations are finalized.
+          Full hour-by-hour scheduling will be published after all confirmations are finalized.
         </p>
       </article>
     </section>

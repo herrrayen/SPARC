@@ -66,9 +66,9 @@ function Venue() {
         <article className="panel">
           <h2>Travel and Stay</h2>
           <ul>
-            <li>[TBD] Airport and public transport guidance will be published.</li>
-            <li>[TBD] Recommended accommodation list will be announced.</li>
-            <li>[TBD] Local logistics notes for attendees and teams.</li>
+            <li>Airport and public transport guidance will be published with the final attendee pack.</li>
+            <li>Recommended accommodation options will be shared before event week.</li>
+            <li>Local logistics notes for attendees and teams will be provided in the participant guide.</li>
           </ul>
         </article>
       </div>
@@ -138,7 +138,7 @@ function Venue() {
           </div>
         ) : (
           <p className="subtle">
-            Add CCSJ location photos to <code>public/assets/brand/</code> to populate the gallery.
+            Venue gallery assets are currently unavailable.
           </p>
         )}
         <p className="subtle">

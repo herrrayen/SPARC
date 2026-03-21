@@ -19,15 +19,19 @@ const rolePriority = {
   "Event Secretary": 3,
   "Event Treasurer": 4,
   "Technical Program Lead": 5,
-  "Logistics Lead": 6,
-  "Industrial Visits Coordinator": 7,
-  "Transportation Manager": 8,
-  "Media Manager": 9,
-  "Ambassadors Coordinator": 10,
-  "Sponsoring Manager": 11,
-  "Decoration Lead": 12,
+  "Logistics Lead": 5,
+  "Social Media Lead": 5,
+  "Decoration Lead": 5,
+  "Technical Program Manager": 6,
+  "Sponsoring Manager": 7,
+  "Social Media Manager": 8,
+  "Media Manager": 8,
+  "Ambassadors Coordinator": 9,
+  "Participants Manager": 10,
+  "HR Manager": 10,
+  "Industrial Visits Coordinator": 11,
+  "Transportation Manager": 12,
   "Decoration Manager": 13,
-  "Participants Manager": 14,
 };
 
 function countdownRenderer({ completed, days, hours, minutes, seconds }) {
@@ -66,7 +70,7 @@ function getMemberPhotoPath(member) {
 
 function TeamPhoto({ member }) {
   const [hasImageError, setHasImageError] = useState(false);
-  const shouldAttemptImage = !member.name.startsWith("[TBD]");
+  const shouldAttemptImage = true;
 
   return (
     <>
@@ -79,7 +83,7 @@ function TeamPhoto({ member }) {
         />
       ) : null}
       {(!shouldAttemptImage || hasImageError) && (
-        <span className="team-photo-label">Coming Soon</span>
+        <span className="team-photo-label">Photo unavailable</span>
       )}
     </>
   );
@@ -100,7 +104,7 @@ function CollaboratorLogo({ collaborator }) {
     );
   }
 
-  return <span>Logo Slot</span>;
+  return <span>Brand</span>;
 }
 
 function SupportLogo({ item, fallbackLabel }) {
@@ -162,6 +166,11 @@ function SocialIconLinks({ instagram, linkedin, label }) {
 
 function Home() {
   const [copiedMemberKey, setCopiedMemberKey] = useState(null);
+  const visiblePartners = ieeePartners.filter((partner) => !partner.name.includes("[TBD]"));
+  const visibleCollaborators = collaborators.filter(
+    (collaborator) => !collaborator.name.includes("[TBD]")
+  );
+  const visibleSponsors = sponsorPlaceholders.filter((sponsor) => !sponsor.name.includes("[TBD]"));
 
   const sortedCommittee = organizingCommittee
     .map((member, sourceIndex) => ({
@@ -248,13 +257,14 @@ function Home() {
         <p className="eyebrow">Support Network</p>
         <h2>Powering This Mission</h2>
         <div className="support-group-grid">
+          {visiblePartners.length > 0 ? (
           <section>
             <h3>IEEE Partners</h3>
             <div className="card-grid logo-slot-grid">
-              {ieeePartners.map((partner) => (
+              {visiblePartners.map((partner) => (
                 <div key={partner.name} className="logo-slot-card">
                   <div className="logo-slot">
-                    <SupportLogo item={partner} fallbackLabel="Logo Slot" />
+                    <SupportLogo item={partner} fallbackLabel="Brand" />
                     <SocialIconLinks
                       instagram={partner.instagram}
                       linkedin={partner.linkedin}
@@ -266,11 +276,13 @@ function Home() {
               ))}
             </div>
           </section>
+          ) : null}
 
+          {visibleCollaborators.length > 0 ? (
           <section>
             <h3>Collaborative Allies</h3>
             <div className="card-grid logo-slot-grid">
-              {collaborators.map((collaborator) => (
+              {visibleCollaborators.map((collaborator) => (
                 <div key={collaborator.name} className="logo-slot-card">
                   <div className="logo-slot">
                     <CollaboratorLogo collaborator={collaborator} />
@@ -285,14 +297,16 @@ function Home() {
               ))}
             </div>
           </section>
+          ) : null}
 
+          {visibleSponsors.length > 0 ? (
           <section>
             <h3>Strategic Backers</h3>
             <div className="card-grid logo-slot-grid">
-              {sponsorPlaceholders.map((sponsor) => (
+              {visibleSponsors.map((sponsor) => (
                 <div key={sponsor.name} className="logo-slot-card">
                   <div className="logo-slot">
-                    <SupportLogo item={sponsor} fallbackLabel="Partner Logo" />
+                    <SupportLogo item={sponsor} fallbackLabel="Brand" />
                     <SocialIconLinks
                       instagram={sponsor.instagram}
                       linkedin={sponsor.linkedin}
@@ -304,6 +318,7 @@ function Home() {
               ))}
             </div>
           </section>
+          ) : null}
         </div>
       </article>
 
@@ -371,9 +386,6 @@ function Home() {
 
       <article className="panel team-panel">
         <h2>Our Team - Organizing Committee</h2>
-        <p className="subtle">
-          Committee members are sorted by role importance.
-        </p>
         <div className="card-grid">
           {sortedCommittee.map((member) => {
             const memberKey = `${member.role}-${member.sourceIndex}`;
@@ -383,24 +395,27 @@ function Home() {
                 <div className="team-photo-slot">
                   <TeamPhoto member={member} />
                   <div className="team-contact-overlay">
-                    <a
-                      className="team-contact-link"
-                      href={member.linkedin || socialLinks.linkedin}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label={`Open ${member.name} LinkedIn profile`}
-                    >
-                      <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
-                        <path
-                          d="M6.94 8.5a1.56 1.56 0 1 1 0-3.12 1.56 1.56 0 0 1 0 3.12ZM5.6 18.5h2.68V9.9H5.6v8.6Zm4.3-8.6v8.6h2.67v-4.27c0-1.12.21-2.2 1.6-2.2 1.37 0 1.39 1.29 1.39 2.28v4.19h2.68v-4.73c0-2.32-.5-4.1-3.2-4.1-1.3 0-2.18.72-2.54 1.4h-.03V9.9H9.9Z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </a>
+                    {member.linkedin?.trim() ? (
+                      <a
+                        className="team-contact-link"
+                        href={member.linkedin}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={`Open ${member.name} LinkedIn profile`}
+                      >
+                        <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+                          <path
+                            d="M6.94 8.5a1.56 1.56 0 1 1 0-3.12 1.56 1.56 0 0 1 0 3.12ZM5.6 18.5h2.68V9.9H5.6v8.6Zm4.3-8.6v8.6h2.67v-4.27c0-1.12.21-2.2 1.6-2.2 1.37 0 1.39 1.29 1.39 2.28v4.19h2.68v-4.73c0-2.32-.5-4.1-3.2-4.1-1.3 0-2.18.72-2.54 1.4h-.03V9.9H9.9Z"
+                            fill="currentColor"
+                          />
+                        </svg>
+                      </a>
+                    ) : null}
                     <button
                       type="button"
                       className="team-contact-copy"
                       aria-label={`Copy ${member.name} email`}
+                      disabled={!member.email && !sitePlaceholders.contactEmail}
                       onClick={() =>
                         copyEmail(member.email || sitePlaceholders.contactEmail, memberKey)
                       }
