@@ -56,7 +56,8 @@ export const aboutWidgets = [
     title: "About SPARC",
     description:
       "SPARC is the event identity for a student-driven technology mission focused on energy resilience, sustainable innovation, and real-world deployment impact.",
-    logo: "/assets/brand/sparc-logo.png",
+    logo: "/assets/brand/sparc-logo-white.png",
+    logoBg: "/assets/brand/sparc-bg.png",
     websiteLabel: "Visit SPARC Page",
     websiteUrl: "",
   },

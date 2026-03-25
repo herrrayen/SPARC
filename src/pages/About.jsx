@@ -21,32 +21,37 @@ function About() {
       <div className="card-grid about-widget-grid">
         {aboutWidgets.map((widget) => {
           const hasLogo = Boolean(widget.logo);
+          const hasLogoBg = Boolean(widget.logoBg);
           const hasWebsiteUrl = widget.websiteUrl.startsWith("http");
           const cardClassName = hasLogo
             ? "panel info-card info-card-with-hover-logo"
             : "panel info-card";
           const cardStyle = hasLogo
-            ? { "--about-logo-url": `url("${widget.logo}")` }
+            ? {
+                "--about-logo-url": `url("${widget.logo}")`,
+                ...(hasLogoBg ? { "--about-logo-bg-url": `url("${widget.logoBg}")` } : {}),
+              }
             : undefined;
 
           return (
             <article className={cardClassName} style={cardStyle} key={widget.title}>
-            <h2>{widget.title}</h2>
-            <p>{widget.description}</p>
-            {hasWebsiteUrl ? (
-              <a
-                className="info-link"
-                href={widget.websiteUrl}
-                target="_blank"
-                rel="noreferrer"
-              >
-                {widget.websiteLabel}
-              </a>
-            ) : (
-              <span className="info-link disabled" aria-disabled="true">
-                {widget.websiteLabel}
-              </span>
-            )}
+              {hasLogoBg ? <span className="about-hover-logo-mark" aria-hidden="true" /> : null}
+              <h2>{widget.title}</h2>
+              <p>{widget.description}</p>
+              {hasWebsiteUrl ? (
+                <a
+                  className="info-link"
+                  href={widget.websiteUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {widget.websiteLabel}
+                </a>
+              ) : (
+                <span className="info-link disabled" aria-disabled="true">
+                  {widget.websiteLabel}
+                </span>
+              )}
             </article>
           );
         })}

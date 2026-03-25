@@ -1169,7 +1169,7 @@
 }
 
 .info-card-with-hover-logo::before {
-  background-image: var(--about-logo-url);
+  background-image: var(--about-logo-bg-url, var(--about-logo-url));
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -1191,6 +1191,26 @@
 .info-card-with-hover-logo:hover::after,
 .info-card-with-hover-logo:focus-within::after {
   opacity: 1;
+}
+
+.about-hover-logo-mark {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-image: var(--about-logo-url);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: clamp(150px, 55%, 280px) auto;
+  opacity: 0;
+  transform: scale(0.96);
+  transition: opacity 0.3s ease, transform 0.38s ease;
+}
+
+.info-card-with-hover-logo:hover .about-hover-logo-mark,
+.info-card-with-hover-logo:focus-within .about-hover-logo-mark {
+  opacity: 0.98;
+  transform: scale(1);
 }
 
 .info-link {
