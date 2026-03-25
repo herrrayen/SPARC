@@ -19,11 +19,21 @@ function About() {
       </article>
 
       <div className="card-grid about-widget-grid">
-        {aboutWidgets.map((widget) => (
-          <article className="panel info-card" key={widget.title}>
+        {aboutWidgets.map((widget) => {
+          const hasLogo = Boolean(widget.logo);
+          const hasWebsiteUrl = widget.websiteUrl.startsWith("http");
+          const cardClassName = hasLogo
+            ? "panel info-card info-card-with-hover-logo"
+            : "panel info-card";
+          const cardStyle = hasLogo
+            ? { "--about-logo-url": `url("${widget.logo}")` }
+            : undefined;
+
+          return (
+            <article className={cardClassName} style={cardStyle} key={widget.title}>
             <h2>{widget.title}</h2>
             <p>{widget.description}</p>
-            {widget.websiteUrl.startsWith("http") ? (
+            {hasWebsiteUrl ? (
               <a
                 className="info-link"
                 href={widget.websiteUrl}
@@ -32,9 +42,14 @@ function About() {
               >
                 {widget.websiteLabel}
               </a>
-            ) : null}
-          </article>
-        ))}
+            ) : (
+              <span className="info-link disabled" aria-disabled="true">
+                {widget.websiteLabel}
+              </span>
+            )}
+            </article>
+          );
+        })}
       </div>
     </section>
   );

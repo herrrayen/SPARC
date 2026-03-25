@@ -56,6 +56,7 @@ export const aboutWidgets = [
     title: "About SPARC",
     description:
       "SPARC is the event identity for a student-driven technology mission focused on energy resilience, sustainable innovation, and real-world deployment impact.",
+    logo: "/assets/brand/sparc-logo.png",
     websiteLabel: "Visit SPARC Page",
     websiteUrl: "",
   },
@@ -63,6 +64,7 @@ export const aboutWidgets = [
     title: "About POWER AND ENERGY SOCIETY",
     description:
       "IEEE PES is a global community advancing electric power and energy systems through research, standards, and professional collaboration.",
+    logo: "/assets/collaborators/pes_logo.png",
     websiteLabel: "Visit IEEE PES",
     websiteUrl: "https://ieee-pes.org",
   },
@@ -70,6 +72,7 @@ export const aboutWidgets = [
     title: "About IEEE ISTIC Student Branch",
     description:
       "The IEEE ISTIC Student Branch supports student leadership, technical upskilling, and project-based innovation across multiple engineering domains.",
+    logo: "/assets/collaborators/istic-sb.png",
     websiteLabel: "Visit IEEE ISTIC Student Branch",
     websiteUrl: "https://istic.ieee.tn/",
   },
@@ -77,8 +80,49 @@ export const aboutWidgets = [
     title: "About IEEE IAS PES ISTIC Student Branch Joint Chapter",
     description:
       "The joint chapter aligns industry applications and power-energy expertise to deliver impactful technical activities and collaborative student projects.",
+    logo: "/assets/collaborators/ias-pes.png",
     websiteLabel: "Visit IEEE IAS PES ISTIC Student Branch Joint Chapter",
     websiteUrl: "https://ias-pes-istic.ieee.tn/",
+  },
+  {
+    title: "About IEEE ISTIC Computer Society Student Branch Chapter",
+    description:
+      "The IEEE ISTIC Computer Society Student Branch Chapter empowers students through computing-focused activities in software engineering, systems, and emerging digital technologies.",
+    logo: "/assets/collaborators/ieee_istic_color_noir.png",
+    websiteLabel: "Visit IEEE ISTIC Computer Society Student Branch Chapter",
+    websiteUrl: "https://www.facebook.com/profile.php?id=61552197270463",
+  },
+  {
+    title: "About IEEE IES Student Branch Chapter",
+    description:
+      "The IEEE IES Student Branch Chapter promotes practical innovation in industrial electronics, automation, intelligent control, and real-world embedded systems.",
+    logo: "/assets/collaborators/ies_istic.jpg",
+    websiteLabel: "Visit IEEE IES Student Branch Chapter",
+    websiteUrl: "https://www.facebook.com/profile.php?id=61587696301965",
+  },
+  {
+    title: "About IEEE RAS ISTIC Student Branch Chapter",
+    description:
+      "The IEEE RAS ISTIC Student Branch Chapter develops robotics and automation talent through technical projects, workshops, and collaborative prototyping.",
+    logo: "/assets/collaborators/ras.jpg",
+    websiteLabel: "Visit IEEE RAS ISTIC Student Branch Chapter",
+    websiteUrl: "https://www.facebook.com/profile.php?id=61555546985817",
+  },
+  {
+    title: "About IEEE ISTIC SIGHT Group",
+    description:
+      "The IEEE ISTIC SIGHT Group supports humanitarian technology initiatives that address local community challenges through sustainable engineering impact.",
+    logo: "/assets/collaborators/sight.jpg",
+    websiteLabel: "Visit IEEE ISTIC SIGHT Group",
+    websiteUrl: "https://www.facebook.com/profile.php?id=61553922900465",
+  },
+  {
+    title: "About IEEE WIE ISTIC Affinity Group",
+    description:
+      "The IEEE WIE ISTIC Affinity Group advances inclusion and leadership by supporting women in engineering through mentorship, events, and technical growth opportunities.",
+    logo: "/assets/collaborators/wie.jpg",
+    websiteLabel: "Visit IEEE WIE ISTIC Affinity Group",
+    websiteUrl: "https://www.facebook.com/ieeewie.istic",
   },
 ];
 
@@ -126,9 +170,10 @@ export const organizingCommittee = [
   },
   {
     name: "Ranim Ben Mansour",
-    role: "Social Media Manager",
-    email: "",
+    role: "Media Manager",
+    email: "ranimbenmansour1234@gmail.com",
     linkedin: "",
+    photo: "/assets/oc/Ranim Benmansour.jpeg",
   },
   {
     name: "Sarah Soltani",
@@ -166,8 +211,9 @@ export const organizingCommittee = [
   {
     name: "Fatma Feki",
     role: "Industrial Visits Coordinator",
-    email: "",
-    linkedin: "",
+    email: "fatmafeki2006@gmail.com",
+    linkedin: "http://www.linkedin.com/in/fatma-feki-444629360",
+    photo: "/assets/oc/Fatma Feki.JPG",
   },
   {
     name: "Med Malek Krima",
@@ -216,8 +262,16 @@ export const organizingCommittee = [
   {
     name: "Sinda Chekir",
     role: "Decoration Manager",
-    email: "",
+    email: "sinda.chekir1809@gmail.com",
     linkedin: "",
+    photo: "/assets/oc/chekir sinda.jpg",
+  },
+  {
+    name: "Tayssir Dardouri",
+    role: "Decoration Manager",
+    email: "tayssirdardouri5@gmail.com",
+    linkedin: "",
+    photo: "/assets/oc/Tayssir Dardouri.jpeg",
   },
   {
     name: "Omar Hamrouni",
