@@ -20,7 +20,7 @@ const rolePriority = {
   "Event Treasurer": 4,
   "Technical Program Lead": 5,
   "Logistics Lead": 5,
-  "Logistics Manager": 5,
+  "Logistics Manager": 6,
   "Social Media Lead": 5,
   "Decoration Lead": 5,
   "Technical Program Manager": 6,
@@ -180,6 +180,19 @@ function Home() {
       priority: rolePriority[member.role] ?? 999,
     }))
     .sort((a, b) => {
+      const aIsLead = a.role.includes("Lead");
+      const bIsLead = b.role.includes("Lead");
+      const aIsManager = a.role.includes("Manager");
+      const bIsManager = b.role.includes("Manager");
+
+      if (aIsLead && bIsManager) {
+        return -1;
+      }
+
+      if (bIsLead && aIsManager) {
+        return 1;
+      }
+
       if (a.priority !== b.priority) {
         return a.priority - b.priority;
       }
