@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import SiteHeader from "./components/SiteHeader";
 import SiteFooter from "./components/SiteFooter";
+import RegistrationPopup from "./components/RegistrationPopup";
 import Home from "./pages/Home";
 import Program from "./pages/Program";
 import Speakers from "./pages/Speakers";
@@ -30,6 +31,7 @@ function App() {
           </Routes>
         </div>
       </main>
+      <RegistrationPopup />
       <SiteFooter />
     </div>
   );

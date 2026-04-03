@@ -235,6 +235,14 @@ function Home() {
           <span>{sitePlaceholders.registrationStatus}</span>
         </div>
         <div className="hero-cta-row">
+          <a
+            href="https://forms.gle/EbA8zLV1EBEjgvAQA"
+            target="_blank"
+            rel="noreferrer"
+            className="hero-cta register-cta"
+          >
+            Register Now
+          </a>
           <Link to="/program" className="hero-cta primary">
             Explore Program
           </Link>
