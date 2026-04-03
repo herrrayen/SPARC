@@ -20,6 +20,7 @@ const rolePriority = {
   "Event Treasurer": 4,
   "Technical Program Lead": 5,
   "Logistics Lead": 5,
+  "Logistics Manager": 5,
   "Social Media Lead": 5,
   "Decoration Lead": 5,
   "Technical Program Manager": 6,

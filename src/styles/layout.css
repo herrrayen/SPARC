@@ -589,7 +589,7 @@
 
 .speaker-photo-slot {
   width: 100%;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 1 / 1;
   border-radius: 10px;
   border: 1px dashed rgba(92, 233, 191, 0.55);
   background: linear-gradient(145deg, rgba(11, 73, 62, 0.55), rgba(5, 39, 33, 0.78));
@@ -605,9 +605,9 @@
 .speaker-photo-img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
-  background: #f6f6f6;
+  background: rgba(0, 0, 0, 0);
 }
 
 .speaker-links {
@@ -638,6 +638,7 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.2rem;
+  align-items: start;
 }
 
 .program-day-queue {
@@ -686,6 +687,255 @@
 
 .program-queue-list p {
   margin: 0;
+}
+
+.program-session-row {
+  display: block;
+}
+
+.program-session-row.with-poster {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 110px;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.session-poster {
+  height: 78px;
+  border-radius: 9px;
+  overflow: hidden;
+  border: 1px solid rgba(108, 238, 204, 0.33);
+  background: linear-gradient(145deg, rgba(11, 73, 61, 0.6), rgba(8, 42, 36, 0.82));
+  display: grid;
+  place-items: center;
+}
+
+.session-poster p {
+  margin: 0;
+  padding: 0.4rem;
+  text-align: center;
+  font-size: 0.74rem;
+  line-height: 1.25;
+}
+
+.session-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bootcamp-panel {
+  position: relative;
+  overflow: hidden;
+  border-color: rgba(103, 244, 209, 0.48);
+  background:
+    radial-gradient(circle at 12% 20%, rgba(116, 255, 216, 0.18), transparent 46%),
+    radial-gradient(circle at 85% 0%, rgba(109, 221, 255, 0.16), transparent 38%),
+    linear-gradient(145deg, rgba(8, 54, 46, 0.76), rgba(5, 34, 29, 0.92));
+}
+
+.bootcamp-panel::after {
+  content: "";
+  position: absolute;
+  inset: -80% -10% auto;
+  height: 240px;
+  background: linear-gradient(90deg, transparent, rgba(180, 255, 238, 0.16), transparent);
+  transform: rotate(7deg);
+  animation: bootcamp-scan 9s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.bootcamp-head {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 0.45rem;
+  margin-bottom: 1rem;
+}
+
+.bootcamp-head h2 {
+  margin: 0;
+}
+
+.bootcamp-head p {
+  margin: 0;
+}
+
+.bootcamp-tag {
+  width: fit-content;
+  margin: 0;
+  padding: 0.28rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(140, 255, 227, 0.7);
+  color: rgba(211, 255, 245, 0.98);
+  background: rgba(9, 88, 73, 0.58);
+  letter-spacing: 0.04em;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+}
+
+.bootcamp-track-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.bootcamp-track {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  width: 100%;
+  font: inherit;
+  padding: 0.72rem 0.76rem;
+  border: 1px solid rgba(111, 245, 212, 0.34);
+  border-radius: 10px;
+  background: rgba(7, 44, 38, 0.62);
+  backdrop-filter: blur(1.5px);
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+  animation: bootcamp-reveal 0.55s ease-out forwards;
+}
+
+.bootcamp-track:hover,
+.bootcamp-track:focus-visible {
+  border-color: rgba(168, 255, 235, 0.72);
+  background: rgba(10, 63, 53, 0.7);
+  transform: translateY(-1px);
+}
+
+.bootcamp-track:nth-child(2) {
+  animation-delay: 0.06s;
+}
+
+.bootcamp-track:nth-child(3) {
+  animation-delay: 0.12s;
+}
+
+.bootcamp-track:nth-child(4) {
+  animation-delay: 0.18s;
+}
+
+.bootcamp-track:nth-child(5) {
+  animation-delay: 0.24s;
+}
+
+.bootcamp-track p {
+  margin: 0;
+}
+
+.bootcamp-topic-title {
+  width: 100%;
+  margin: 0;
+  font-family: var(--font-body);
+  line-height: 1.35;
+  color: rgba(218, 255, 246, 0.98);
+  font-size: 0.98rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: rgba(137, 247, 220, 0.56);
+  text-underline-offset: 3px;
+}
+
+.bootcamp-track-meta {
+  margin-top: -0.15rem;
+  font-size: 0.79rem;
+  letter-spacing: 0.02em;
+  color: rgba(188, 255, 236, 0.9);
+}
+
+.bootcamp-track-content {
+  width: 100%;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.bootcamp-track-dot {
+  width: 10px;
+  height: 10px;
+  margin-top: 0.36rem;
+  border-radius: 999px;
+  background: rgba(148, 255, 229, 0.95);
+  box-shadow: 0 0 0 5px rgba(109, 236, 203, 0.18);
+  flex-shrink: 0;
+}
+
+.poster-lightbox {
+  --poster-top-offset: clamp(76px, 9vh, 92px);
+  position: fixed;
+  inset: var(--poster-top-offset) 0 0 0;
+  z-index: 2600;
+  background: rgba(2, 15, 13, 0.84);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  overflow-y: auto;
+  padding: 0.5rem clamp(0.6rem, 2vh, 1rem) 1rem;
+  animation: poster-fade-in 0.22s ease-out;
+}
+
+.poster-lightbox.is-closing {
+  animation: poster-fade-out 0.18s ease-in forwards;
+}
+
+.poster-lightbox-card {
+  width: min(88vw, 560px);
+  max-height: calc(100dvh - var(--poster-top-offset) - 1.4rem);
+  overflow: auto;
+  border: 1px solid rgba(122, 245, 213, 0.48);
+  border-radius: 16px;
+  background: linear-gradient(145deg, rgba(8, 50, 43, 0.96), rgba(4, 28, 23, 0.98));
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.46);
+  padding: 0.7rem 0.75rem 0.85rem;
+  display: grid;
+  gap: 0.42rem;
+  animation: poster-pop 0.22s ease-out;
+}
+
+.poster-lightbox-card.is-closing {
+  animation: poster-pop-out 0.18s ease-in forwards;
+}
+
+.poster-lightbox-card h2,
+.poster-lightbox-card p {
+  margin: 0;
+}
+
+.poster-lightbox-card img {
+  width: min(100%, 430px);
+  max-height: min(56dvh, 430px);
+  justify-self: center;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  border-radius: 10px;
+  border: 1px solid rgba(118, 238, 207, 0.34);
+  background: rgba(2, 18, 15, 0.8);
+}
+
+.poster-lightbox-close {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  justify-self: end;
+  border: 1px solid rgba(123, 252, 216, 0.55);
+  border-radius: 999px;
+  padding: 0.28rem 0.75rem;
+  background: rgba(9, 77, 65, 0.9);
+  color: rgba(221, 255, 247, 0.98);
+  font: inherit;
+  cursor: pointer;
+}
+
+.poster-lightbox-close:hover,
+.poster-lightbox-close:focus-visible {
+  border-color: rgba(174, 255, 235, 0.95);
+  background: rgba(12, 96, 80, 0.95);
 }
 
 .benefits-grid {
@@ -1072,6 +1322,76 @@
   }
 }
 
+@keyframes bootcamp-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bootcamp-scan {
+  0% {
+    transform: translate3d(-26%, -2%, 0) rotate(7deg);
+  }
+
+  50% {
+    transform: translate3d(22%, 2%, 0) rotate(7deg);
+  }
+
+  100% {
+    transform: translate3d(-26%, -2%, 0) rotate(7deg);
+  }
+}
+
+@keyframes poster-pop {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes poster-pop-out {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(6px) scale(0.98);
+  }
+}
+
+@keyframes poster-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes poster-fade-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .page-shell section > * {
     animation: none;
@@ -1094,6 +1414,23 @@
   .page-shell section > h1::after,
   .hero-countdown-focus::before,
   .hero-countdown-focus::after {
+    animation: none;
+  }
+
+  .bootcamp-panel::after,
+  .bootcamp-track {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .poster-lightbox-card {
+    animation: none;
+  }
+
+  .poster-lightbox,
+  .poster-lightbox.is-closing,
+  .poster-lightbox-card.is-closing {
     animation: none;
   }
 }
@@ -1373,6 +1710,19 @@
 
   .program-queue-grid {
     grid-template-columns: 1fr;
+  }
+
+  .bootcamp-track-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .program-session-row.with-poster {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .session-poster {
+    height: 118px;
   }
 
   .benefits-grid {
