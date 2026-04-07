@@ -78,14 +78,6 @@ export const aboutWidgets = [
     websiteUrl: "https://istic.ieee.tn/",
   },
   {
-    title: "About IEEE IAS PES ISTIC Student Branch Joint Chapter",
-    description:
-      "The joint chapter aligns industry applications and power-energy expertise to deliver impactful technical activities and collaborative student projects.",
-    logo: "/assets/collaborators/ias-pes.png",
-    websiteLabel: "Visit IEEE IAS PES ISTIC Student Branch Joint Chapter",
-    websiteUrl: "https://ias-pes-istic.ieee.tn/",
-  },
-  {
     title: "About IEEE ISTIC Computer Society Student Branch Chapter",
     description:
       "The IEEE ISTIC Computer Society Student Branch Chapter empowers students through computing-focused activities in software engineering, systems, and emerging digital technologies.",
@@ -198,16 +190,11 @@ export const organizingCommittee = [
     photo: "/assets/oc/andel-belgacemi.jpg",
   },
   {
-    name: "Aziz Chaouch",
-    role: "Transportation Manager",
-    email: "",
-    linkedin: "",
-  },
-  {
     name: "Khalil Derouiche",
     role: "Logistics Manager",
     email: "",
     linkedin: "",
+    photo: "/assets/oc/khalil.jpeg",
   },
   {
     name: "Fatma Feki",
@@ -217,29 +204,11 @@ export const organizingCommittee = [
     photo: "/assets/oc/Fatma Feki.JPG",
   },
   {
-    name: "Med Malek Krima",
-    role: "Industrial Visits Coordinator",
-    email: "krimamalek@gmail.com",
-    linkedin: "",
-    photo: "/assets/oc/malek.jpg",
-  },
-  {
     name: "Med Mounir Gharbi",
     role: "Technical Program Manager",
-    email: "",
+    email: "mounir.gharbi026@gmail.com",
     linkedin: "",
-  },
-  {
-    name: "Nagham Ben Hassan",
-    role: "Technical Program Manager",
-    email: "",
-    linkedin: "",
-  },
-  {
-    name: "Yosra Boughattas",
-    role: "Sponsoring Manager",
-    email: "",
-    linkedin: "",
+    photo: "/assets/oc/mounir.jpeg",
   },
   {
     name: "Salma Teyeb",
@@ -247,18 +216,6 @@ export const organizingCommittee = [
     email: "salma.teyeb.01@gmail.com",
     linkedin: "",
     photo: "/assets/oc/salma-teyeb.jpg",
-  },
-  {
-    name: "Mariem Aouadi",
-    role: "HR Manager",
-    email: "",
-    linkedin: "",
-  },
-  {
-    name: "Yasmine Harzi",
-    role: "Decoration Lead",
-    email: "",
-    linkedin: "",
   },
   {
     name: "Sinda Chekir",
@@ -288,12 +245,6 @@ export const organizingCommittee = [
     linkedin: "https://www.linkedin.com/in/yahya-ben-mohamed-2138aa392?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
     photo: "/assets/oc/yahya.jpg",
   },
-  {
-    name: "Mohamed Sehly",
-    role: "Sponsoring Manager",
-    email: "",
-    linkedin: "",
-  },
 ];
 
 export const ieeePartners = [
@@ -304,22 +255,10 @@ export const ieeePartners = [
     linkedin: "https://www.linkedin.com/company/ieee-istic-sb",
   },
   {
-    name: "IEEE IAS PES ISTIC SB Joint Chapter",
-    logo: "/assets/collaborators/ias-pes.png",
-    instagram: "https://www.instagram.com/ieee_istic_ias_pes_sbjc/",
-    linkedin: "https://www.linkedin.com/company/ieee-istic-ias-pes-student-branch-joint-chapter/",
-  },
-  {
     name: "IEEE PES",
     logo: "/assets/collaborators/pes_logo.png",
     instagram: "https://www.instagram.com/ieee.pes/",
     linkedin: "https://www.linkedin.com/company/ieeepes",
-  },
-  {
-    name: "IEEE IAS",
-    logo: "",
-    instagram: "",
-    linkedin: "",
   },
 ];
 
